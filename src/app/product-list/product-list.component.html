@@ -1,0 +1,21 @@
+<h2>Products</h2>
+
+<div *ngFor="let eachProduct of productListComponent">
+  <a 
+    [title]="eachProduct.name + ' details'"
+    [routerLink]="['/products', eachProduct.id]">
+    <h3>{{eachProduct.name}}</h3>
+  </a>
+
+  <p *ngIf="eachProduct.description">Description: {{eachProduct.description}}</p>
+
+  <button type="button" (click)="shareProductListComponent()">Share</button>
+
+  <app-product-alerts 
+  [inputProduct]="eachProduct"
+  (outputNotify)="onNotify()"
+  ></app-product-alerts>
+
+</div>
+
+
